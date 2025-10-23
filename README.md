@@ -5,10 +5,10 @@ Just another Next.js boilerplate.
 ## Features
 
 - **Next.js**: File-based routing, server/client components, server actions
-- **Supabase**: Auth, Postgres, SSR/CSR integration
+- **Supabase**: Auth, Postgres (SSR/CSR)
+- **Firebase**: Auth (CSR)
 - **Zustand**: Global state management for user/session/data
 - **TailwindCSS + Shadcn**: Beautiful, customizable UI components
-- **Authentication**: Google OAuth, session management, protected routes
 - **Server Actions**: Secure data fetching and mutations
 - **Biome**: Code quality and formatting
 - **TypeScript**: Type safety throughout
@@ -23,20 +23,22 @@ Just another Next.js boilerplate.
    ```
 
 2. **Configure environment variables**
-   - Copy `.env.example` to `.env.local` and fill in your Supabase keys:
-     - `NEXT_PUBLIC_SUPABASE_URL`
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-     - `SUPABASE_SERVICE_ROLE_KEY` (for seeding/migrations)
+   - Copy `.env.example` to `.env.local` and fill in your keys.
 
-3. **Run the development server**
+3. **Choose Supabase or Firebase for authentication**
+   - By default, Firebase is enabled. To switch to Supabase, toggle the exports in `lib/auth/browser.ts` and `lib/auth/server.ts`.
+   - Ensure to remove any unused dependencies after switching.
+
+4. **Run the development server**
    ```sh
    pnpm dev
    ```
 
-4. **Google OAuth setup** :
-   [supabase guide](https://supabase.com/docs/guides/auth/social-login/auth-google)
+5. **Google OAuth setup** :
+   - [supabase guide](https://supabase.com/docs/guides/auth/social-login/auth-google)
+   - [firebase guide](https://firebase.google.com/docs/auth/web/google-signin)
 
-5. **Supabase setup**
+6. _(Supabase only)_ **Backend setup**
    - Initialize: `supabase init`
    - Create migrations/seeds in `supabase/migrations/` and `supabase/seed.sql`
    - Push schema: `supabase db push`
@@ -49,14 +51,14 @@ app/                # Next.js app router
   private/          # Private example page
 components/         # UI components (atoms, navbar, theme, ...)
 hooks/              # Custom React hooks
-lib/                # Utilities, Supabase client/server helpers
+lib/                # Utilities, backend client/server helpers
 stores/             # Zustand stores (user, data)
 supabase/           # Supabase migrations, seeds, config
 ```
 
 ## Authentication
 
-- Google OAuth via Supabase
+- Google OAuth via Supabase or Firebase
 - Session state managed with Zustand
 - Middleware for protected routes
 

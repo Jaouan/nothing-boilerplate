@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/sidebar";
 import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 import navItems from "./nav-items";
-import { NavStoreUser } from "./NavStoreUser";
 import { HeaderLogo } from "../ui/HeaderLogo";
+import { NavUser } from "./NavUser";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
@@ -25,7 +25,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				<div className="transition-all flex justify-start ms-3 group-data-[state=collapsed]:ms-1">
 					<ThemeSwitcher />
 				</div>
-				<NavStoreUser />
+				<NavUser />
 			</SidebarFooter>
 			<SidebarRail />
 		</Sidebar>

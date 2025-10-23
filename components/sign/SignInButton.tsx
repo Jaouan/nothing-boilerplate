@@ -14,8 +14,8 @@ export const SignInButton: React.FC = () => {
 
 	const handleSignIn = async () => {
 		setIsWaitingPopin(true);
-		const error = await signInWithGoogle();
-		if (error) setIsWaitingPopin(false);
+		await signInWithGoogle();
+		setIsWaitingPopin(false);
 	};
 
 	if (user) {

@@ -1,6 +1,6 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/auth/supabase/server.supabase";
 
 export async function fetchDataAction() {
 	const supabase = await createClient();
