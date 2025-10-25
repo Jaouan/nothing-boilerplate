@@ -72,7 +72,9 @@ export function NavUser() {
 										src={user?.avatar ?? undefined}
 										alt={user?.name ?? undefined}
 									/>
-									<AvatarFallback className="rounded-lg">?</AvatarFallback>
+									<AvatarFallback className="rounded-lg">
+										{loading ? null : (user?.name?.charAt(0) ?? "?")}
+									</AvatarFallback>
 								</Avatar>
 								<div className="grid flex-1 text-left text-sm leading-tight">
 									<span className="truncate font-medium">{user?.name}</span>

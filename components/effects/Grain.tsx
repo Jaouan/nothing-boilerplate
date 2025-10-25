@@ -26,8 +26,8 @@ export const Grain: FC = () => {
 				shape="corners"
 				offsetX={0}
 				offsetY={0}
-				scale={1}
-				rotation={0}
+				scale={1.1}
+				rotation={70}
 				speed={1}
 				colors={colors}
 			/>

@@ -11,7 +11,7 @@ export default function HomePage() {
 				This is the main landing page of the application.
 			</p>
 			<SignInButton />
-			<div className="absolute bottom-4 right-4">
+			<div className="absolute top-4 right-4">
 				<ThemeSwitcher />
 			</div>
 		</main>
