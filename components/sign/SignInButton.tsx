@@ -31,7 +31,7 @@ export const SignInButton: React.FC = () => {
 			type="button"
 			onClick={handleSignIn}
 			disabled={isWaitingPopin || loading}
-			className={cn(loading ? "!opacity-0" : "animate-in")}
+			className={cn(loading ? "opacity-0!" : "animate-in")}
 		>
 			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in
 			with Google
