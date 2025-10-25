@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/auth/supabase/client.supabase";
+import { createClient } from "@/lib/auth/supabase/client";
 import { UserState } from "@/lib/auth/auth.interface";
 import { mapUser } from "./user-mapper";
 

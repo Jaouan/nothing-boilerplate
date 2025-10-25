@@ -1,15 +1,17 @@
+import { headers } from "next/headers";
 import { AuthServerProvider } from "../auth-server.interface";
+import { auth } from "./auth";
 import { authProxy } from "./proxy";
-import { createClient } from "./server-client";
 import { mapUser } from "./user-mapper";
 
 const provider: AuthServerProvider = {
-	authProxy,
 	getServerUser: async () => {
-		const supabase = await createClient();
-		const { data, error } = await supabase.auth.getUser();
-		return { user: mapUser(data?.user), error };
+		const session = await auth.api.getSession({
+			headers: await headers(),
+		});
+		return { user: mapUser(session?.user) };
 	},
+	authProxy,
 };
 
 export default provider;

@@ -6,15 +6,13 @@ Just another Next.js boilerplate.
 
 ## Features
 
-- **Next.js**: File-based routing, server/client components, server actions
-- **Supabase**: Auth, Postgres (SSR/CSR)
-- **Firebase**: Auth (CSR)
-- **Zustand**: Global state management
-- **TailwindCSS + Shadcn**: Beautiful, customizable UI components
-- **Server Actions**: Secure data fetching and mutations
-- **Biome**: Code quality and formatting
-- **TypeScript**: Type safety throughout
-- **Husky**: Git hooks for linting and testing
+- **Framework** : Next.js (file-based routing, RSC, server actions)
+- **Auth** : Supabase (SSR+CSR) / Better-Auth (SSR+CSR) / Firebase (CSR only)
+- **Backend** : Supabase (client-side + server-side) / Firebase (client-side only)
+- **State Management** : Zustand
+- **UI / Styling** : TailwindCSS + Shadcn
+- **Code Quality & Formatting** : Biome
+- **Git Hooks** : Husky
 
 ## Getting Started
 
@@ -27,9 +25,10 @@ Just another Next.js boilerplate.
 2. **Configure environment variables**
    - Copy `.env.example` to `.env.local` and fill in your keys.
 
-3. **Choose Supabase or Firebase for authentication**
-   - By default, Firebase is enabled. To switch to Supabase, toggle the exports in `lib/auth/browser.ts` and `lib/auth/server.ts`.
+3. **Choose Better-Auth, Firebase or Supabase for authentication**
+   - Toggle the exports in `lib/auth/browser.ts` and `lib/auth/server.ts`.
    - If switching to Supabase, delete `<AuthenticatedOnly>` HOC.
+   - Delete any unused auth folders.
    - Ensure to remove any unused dependencies after switching.
 
 4. **Run the development server**
@@ -38,13 +37,17 @@ Just another Next.js boilerplate.
    ```
 
 5. **Google OAuth setup** :
-   - [supabase guide](https://supabase.com/docs/guides/auth/social-login/auth-google)
+   - [better-auth guide](https://www.better-auth.com/docs/authentication/google)
    - [firebase guide](https://firebase.google.com/docs/auth/web/google-signin)
+   - [supabase guide](https://supabase.com/docs/guides/auth/social-login/auth-google)
 
 6. _(Supabase only)_ **Backend setup**
    - Initialize: `supabase init`
    - Create migrations/seeds in `supabase/migrations/` and `supabase/seed.sql`
    - Push schema: `supabase db push`
+
+7. _(better-auth only)_ **Database setup**
+   - Generate schema: `npx @better-auth/cli@latest generate --config ./lib/auth/better-auth/auth.ts`
 
 ## Project Structure
 
@@ -61,9 +64,9 @@ supabase/           # Supabase migrations, seeds, config
 
 ## Authentication
 
-- Google OAuth via Supabase or Firebase
+- Google OAuth via Better-Auth, Firebase or Supabase
 - Session state managed with Zustand
-- Middleware for protected routes
+- Next.js proxy for protected routes
 
 ## Data Fetching
 

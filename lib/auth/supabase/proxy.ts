@@ -1,12 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function updateSession(request: NextRequest) {
+export const authProxy = async (request: NextRequest) => {
 	let supabaseResponse = NextResponse.next({
 		request,
 	});
 
-	// Create a Supabase client
 	const supabase = createServerClient(
 		process.env.NEXT_PUBLIC_SUPABASE_URL!,
 		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -30,12 +29,10 @@ export async function updateSession(request: NextRequest) {
 		},
 	);
 
-	// Get the current user from Supabase
 	const {
 		data: { user },
 	} = await supabase.auth.getUser();
 
-	// Redirect unauthenticated users to home page
 	if (!user && !request.nextUrl.pathname.startsWith("/auth")) {
 		const url = request.nextUrl.clone();
 		url.pathname = "/";
@@ -43,4 +40,4 @@ export async function updateSession(request: NextRequest) {
 	}
 
 	return supabaseResponse;
-}
+};
