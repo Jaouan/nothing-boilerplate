@@ -2,6 +2,8 @@
 
 Just another Next.js boilerplate.
 
+✨ Demo: [https://nothing.jaouan.dev](https://nothing.jaouan.dev)
+
 ## Features
 
 - **Next.js**: File-based routing, server/client components, server actions
