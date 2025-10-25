@@ -13,6 +13,7 @@ export type UserState = {
 	error: unknown | null;
 	signOut: () => Promise<void>;
 	signInWithGoogle: (redirectTo?: string) => Promise<void>;
+	provider?: string;
 };
 
 export type AuthBrowserProvider = {

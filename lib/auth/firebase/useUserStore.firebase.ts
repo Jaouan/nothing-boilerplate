@@ -12,6 +12,7 @@ import { firebaseApp } from "./firebase";
 const auth = getAuth(firebaseApp);
 
 export const useUserStore = create<UserState>((set) => ({
+	provider: "firebase",
 	user: null,
 	session: null,
 	loading: true,

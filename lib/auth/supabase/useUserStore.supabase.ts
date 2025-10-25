@@ -7,6 +7,7 @@ import { mapUser } from "./user-mapper";
 const supabase = createClient();
 
 export const useUserStore = create<UserState>((set) => ({
+	provider: "supabase",
 	user: null,
 	loading: true,
 	error: null,

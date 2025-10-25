@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export const SignInButton: React.FC = () => {
 	const [isWaitingPopin, setIsWaitingPopin] = useState(false);
-	const { signInWithGoogle, loading, user } = useUserStore();
+	const { loading, provider, signInWithGoogle, user } = useUserStore();
 
 	const handleSignIn = async () => {
 		setIsWaitingPopin(true);
@@ -34,7 +34,7 @@ export const SignInButton: React.FC = () => {
 			className={cn(loading ? "opacity-0!" : "animate-in")}
 		>
 			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in
-			with Google
+			with Google {provider && `(${provider})`}
 		</Button>
 	);
 };

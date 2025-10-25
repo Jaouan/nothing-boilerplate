@@ -6,5 +6,5 @@ export type AuthServerProvider = {
 	authMiddleware: (request: NextRequest) => Promise<NextResponse>;
 	getServerUser: (
 		request: Request,
-	) => Promise<{ user: User | null; error: unknown }>;
+	) => Promise<{ user: User | null; error?: unknown | null }>;
 };
