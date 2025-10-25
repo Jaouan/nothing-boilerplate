@@ -6,7 +6,6 @@ import {
 	GoogleAuthProvider,
 } from "firebase/auth";
 import { create } from "zustand";
-import { redirect } from "next/navigation";
 import { UserState } from "../auth.interface";
 import { firebaseApp } from "./firebase";
 
@@ -25,7 +24,7 @@ export const useUserStore = create<UserState>((set) => ({
 			console.log("Error during sign out:", error);
 		} finally {
 			set({ user: null, loading: false, error: null });
-			redirect("/");
+			location.assign("/");
 		}
 	},
 	signInWithGoogle: async () => {
@@ -45,8 +44,8 @@ onIdTokenChanged(auth, (user) => {
 			? {
 					id: user.uid!,
 					email: user.email!,
-					name: user.displayName ?? undefined,
-					avatar: user.photoURL ?? undefined,
+					name: user.displayName,
+					avatar: user.photoURL,
 				}
 			: null,
 		loading: false,

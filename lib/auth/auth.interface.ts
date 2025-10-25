@@ -3,8 +3,8 @@ import type { StoreApi, UseBoundStore } from "zustand";
 export interface User {
 	id: string;
 	email: string;
-	name?: string;
-	avatar?: string;
+	name: string | null;
+	avatar: string | null;
 }
 
 export type UserState = {

@@ -1,3 +1,4 @@
+import { AuthenticatedOnly } from "@/components/auth/AuthenticatedOnly";
 import { PrivateLayout } from "@/components/layout/PrivateLayout";
 
 export default function Layout({
@@ -5,5 +6,9 @@ export default function Layout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return <PrivateLayout>{children}</PrivateLayout>;
+	return (
+		<AuthenticatedOnly>
+			<PrivateLayout>{children}</PrivateLayout>
+		</AuthenticatedOnly>
+	);
 }

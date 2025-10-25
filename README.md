@@ -27,6 +27,7 @@ Just another Next.js boilerplate.
 
 3. **Choose Supabase or Firebase for authentication**
    - By default, Firebase is enabled. To switch to Supabase, toggle the exports in `lib/auth/browser.ts` and `lib/auth/server.ts`.
+   - If switching to Supabase, delete `<AuthenticatedOnly>` HOC.
    - Ensure to remove any unused dependencies after switching.
 
 4. **Run the development server**
