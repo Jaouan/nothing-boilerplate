@@ -7,7 +7,7 @@ Just another Next.js boilerplate.
 - **Next.js**: File-based routing, server/client components, server actions
 - **Supabase**: Auth, Postgres (SSR/CSR)
 - **Firebase**: Auth (CSR)
-- **Zustand**: Global state management for user/session/data
+- **Zustand**: Global state management
 - **TailwindCSS + Shadcn**: Beautiful, customizable UI components
 - **Server Actions**: Secure data fetching and mutations
 - **Biome**: Code quality and formatting
@@ -67,6 +67,10 @@ supabase/           # Supabase migrations, seeds, config
 
 - Use server actions for secure SSR/CSR data access
 - Zustand stores for client state, calling server actions via API
+
+Example:
+- `useDataStore.actions.ts`: use server actions.
+- `useDataStore.firebase.ts`: use Firebase client SDK (fetching and subscribing to data).
 
 ## UI & Theming
 
