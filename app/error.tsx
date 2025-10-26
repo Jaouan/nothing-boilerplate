@@ -18,7 +18,7 @@ export default function ErrorPage({ error }: ErrorProps) {
 				<Alert variant="destructive">
 					<AlertCircleIcon />
 					<AlertTitle>Something went wrong! Please try again later.</AlertTitle>
-					<AlertDescription>
+					<AlertDescription className="overflow-x-scroll">
 						{displayError && (
 							<pre className="block w-full card px-4 py-2 bg-base-300 text-base-content">
 								{displayError}
@@ -27,7 +27,7 @@ export default function ErrorPage({ error }: ErrorProps) {
 					</AlertDescription>
 				</Alert>
 				<Button type="button" asChild>
-					<Link href="/private">Go back home</Link>
+					<Link href="/">Go back home</Link>
 				</Button>
 			</div>
 		</PublicLayout>

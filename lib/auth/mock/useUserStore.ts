@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { UserState } from "../auth.interface";
-import { redirect } from "next/navigation";
 import { mockedUser } from "./mocked-user";
 import { IS_CLIENT } from "@/lib/constants";
 
@@ -21,6 +20,5 @@ export const useUserStore = create<UserState>((set) => ({
 	signInWithGoogle: async () => {
 		sessionStorage.setItem("mock-auth-connected", "true");
 		set({ user: mockedUser, loading: false });
-		redirect("/private");
 	},
 }));

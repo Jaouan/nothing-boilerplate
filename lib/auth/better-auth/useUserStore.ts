@@ -44,7 +44,6 @@ export const useUserStore: UseBoundStore<StoreApi<UserState>> = (() => {
 				loading: isPending,
 				error,
 			});
-			if (currentState.user === null && session?.user.id) redirect("/private");
 		});
 	}
 	return useGenericAuthStore();

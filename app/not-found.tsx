@@ -7,7 +7,7 @@ export default function NotFound() {
 		<PublicLayout>
 			<p className="my-8 text-lg">Whoops! The page doesn&apos;t exist.</p>
 			<Button type="button" asChild>
-				<Link href="/private">Go back home</Link>
+				<Link href="/">Go back home</Link>
 			</Button>
 		</PublicLayout>
 	);

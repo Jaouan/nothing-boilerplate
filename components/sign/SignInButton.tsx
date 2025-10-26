@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { FC, useState } from "react";
 import { FaGoogle } from "react-icons/fa6";
 import { useUserStore } from "@/stores/useUserStore";
-import { cn } from "@/lib/utils";
+import { cn, PropsWithStyle } from "@/lib/utils";
 import { Spinner } from "../ui/shadcn-io/spinner";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
-export const SignInButton: React.FC = () => {
+export const SignInButton: FC<PropsWithStyle> = ({ className }) => {
 	const [isWaitingPopin, setIsWaitingPopin] = useState(false);
 	const { loading, provider, signInWithGoogle, user } = useUserStore();
 
@@ -18,23 +17,17 @@ export const SignInButton: React.FC = () => {
 		setIsWaitingPopin(false);
 	};
 
-	if (user) {
-		return (
-			<Button type="button" className="animate-in" asChild>
-				<Link href="/private">Get started</Link>
-			</Button>
-		);
-	}
+	if (user) return null;
 
 	return (
 		<Button
 			type="button"
 			onClick={handleSignIn}
 			disabled={isWaitingPopin || loading}
-			className={cn(loading ? "opacity-0!" : "animate-in")}
+			className={cn(loading ? "opacity-0!" : "animate-in", className)}
 		>
-			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in
-			with Google {provider && `(${provider})`}
+			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in{" "}
+			{provider && `(${provider})`}
 		</Button>
 	);
 };

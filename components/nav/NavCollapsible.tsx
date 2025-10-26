@@ -2,12 +2,11 @@
 
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { usePathname } from "next/navigation";
+import type { FC } from "react";
 
-export function NavCollapsible({
-	...props
-}: React.ComponentProps<typeof CollapsiblePrimitive.Root> & {
-	links?: string[];
-}) {
+export const NavCollapsible: FC<
+	React.ComponentProps<typeof CollapsiblePrimitive.Root> & { links?: string[] }
+> = ({ ...props }) => {
 	const path = usePathname();
 	return (
 		<CollapsiblePrimitive.Root
@@ -16,4 +15,4 @@ export function NavCollapsible({
 			{...props}
 		/>
 	);
-}
+};
