@@ -7,6 +7,24 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Nothing Boilerplate",
+	description:
+		"A modern, fast and flexible Next.js boilerplate for your web projects.",
+	keywords: ["Next.js", "Boilerplate", "React", "TypeScript", "TailwindCSS"],
+	openGraph: {
+		title: "Nothing Boilerplate",
+		description:
+			"A modern, fast and flexible Next.js boilerplate for your web projects.",
+		url: "https://nothing.jaouan.dev",
+		siteName: "Nothing Boilerplate",
+		images: [
+			{
+				url: "https://nothing.jaouan.dev/landing-shot.webp",
+				alt: "Nothing Boilerplate OG Image",
+			},
+		],
+		locale: "en_US",
+		type: "website",
+	},
 };
 
 export default function RootLayout({
