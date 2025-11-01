@@ -26,8 +26,8 @@ export const SignInButton: FC<PropsWithStyle> = ({ className }) => {
 			disabled={isWaitingPopin || loading}
 			className={cn(loading ? "opacity-0!" : "animate-in", className)}
 		>
-			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in{" "}
-			{provider && `(${provider})`}
+			{isWaitingPopin ? <Spinner variant="circle" /> : <FaGoogle />} Sign in
+			with Google {provider && `(${provider})`}
 		</Button>
 	);
 };
