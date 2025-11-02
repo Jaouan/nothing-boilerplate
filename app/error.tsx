@@ -14,13 +14,13 @@ export default function ErrorPage({ error }: ErrorProps) {
 	const displayError = `${error.message || error}`;
 	return (
 		<PublicLayout>
-			<div className="w-full max-w-lg flex flex-col items-center gap-4">
+			<div className="w-full max-w-4xl flex flex-col items-center gap-4">
 				<Alert variant="destructive">
 					<AlertCircleIcon />
 					<AlertTitle>Something went wrong! Please try again later.</AlertTitle>
-					<AlertDescription className="overflow-x-scroll">
+					<AlertDescription>
 						{displayError && (
-							<pre className="block w-full card px-4 py-2 bg-base-300 text-base-content">
+							<pre className="block w-full card py-2 bg-base-300 text-base-content text-wrap">
 								{displayError}
 							</pre>
 						)}

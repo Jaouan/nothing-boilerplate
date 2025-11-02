@@ -17,5 +17,6 @@ export type UserState = {
 };
 
 export type AuthBrowserProvider = {
+	isSsrAuth: boolean;
 	useUserStore: UseBoundStore<StoreApi<UserState>>;
 };
