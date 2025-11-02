@@ -9,6 +9,7 @@ export default {
 			items: [
 				{ title: "Dashboard", url: "/private" },
 				{ title: "Table", url: "/private/table" },
+				{ title: "Workflow", url: "/private/workflow" },
 			],
 		},
 		{
