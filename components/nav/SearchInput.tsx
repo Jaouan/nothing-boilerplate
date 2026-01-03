@@ -14,10 +14,13 @@ import { Input } from "../ui/input";
 import { Kbd, KbdKey } from "../ui/shadcn-io/kbd";
 import { cn, PropsWithStyle } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useSearchStore } from "@/stores/useSearchStore";
+import { redirect } from "next/navigation";
 
 export const SearchInput: FC<PropsWithStyle> = ({ className }) => {
 	const isMobile = useIsMobile();
 	const [open, setOpen] = useState(false);
+	const items = useSearchStore((state) => state.items);
 
 	useEffect(() => {
 		if (isMobile) return;
@@ -51,9 +54,17 @@ export const SearchInput: FC<PropsWithStyle> = ({ className }) => {
 				<CommandList>
 					<CommandEmpty>No results found.</CommandEmpty>
 					<CommandGroup heading="Suggestions">
-						<CommandItem>Foo</CommandItem>
-						<CommandItem>Bar</CommandItem>
-						<CommandItem>Baz</CommandItem>
+						{items.map((item, index) => (
+							<CommandItem
+								key={index}
+								onSelect={() => {
+									setOpen(false);
+									redirect(item.url);
+								}}
+							>
+								{item.title}
+							</CommandItem>
+						))}
 					</CommandGroup>
 				</CommandList>
 			</CommandDialog>
