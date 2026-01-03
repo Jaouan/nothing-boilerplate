@@ -28,7 +28,7 @@ export const ThemeSwitcher: FC<PropsWithStyle> = ({ className }) => {
 					<span className="sr-only">Toggle theme</span>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end" className="text-end">
+			<DropdownMenuContent align="end" className="text-end ml-6 md:ml-2">
 				<DropdownMenuItem onClick={() => setTheme("light")}>
 					Light
 				</DropdownMenuItem>
